@@ -1,13 +1,13 @@
-# Verilog implementation of Serial Communication Protocols  
+**Verilog implementation of Serial Communication Protocols** 
 
-## The following protocols are to be implemented on Terasic DE-10 Lite Board with Quartus Prime Lite.
+The following protocols are to be implemented on Terasic DE-10 Lite Board with Quartus Prime Lite.  
 
-### UART  
+- UART  
 
-### USART  
+- USART  
 
-### I2C  
+- I2C  
 
-### SPI  
+- SPI  
 
-### VGA
+- VGA
