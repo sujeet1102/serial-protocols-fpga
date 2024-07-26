@@ -1,1 +1,1 @@
-### Inter-Integreted Circuit (Two Wire Interface)
+### Inter-Integrated Circuit (Two Wire Interface)
