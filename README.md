@@ -2,7 +2,7 @@
 
 I am planning to implement the following serial communication protocols as part of my FPGA & verilog learning process.  
 
-Board used is the Terasic DE-10 Lite. These are some of its specs:
+Board used is the Terasic DE-10 Lite. These are some of its specs:  
     - MAX 10 10M50DAF484C7G Device.  
     - Integrated dual ADCs, each ADC supports 1 dedicated analog input and 8 dual function pins.  
     - 50K programmable logic elements.  
@@ -12,10 +12,10 @@ Board used is the Terasic DE-10 Lite. These are some of its specs:
   
 Software used is the Quartus Prime (ver 20.1) Lite.  
 
-| Protocol | Date  | Status  |
-|----------|-------|---------|
-| UART     | 28/07 | Ongoing |
-| USART    |       |         |
-| I2C      |       |         |
-| SPI      |       |         |
-| VGA      |       |         |
+| Protocol |   Date   |  Status |
+|----------|----------|---------|
+| UART     | 28/07/24 | Ongoing |
+| USART    |          |         |
+| I2C      |          |         |
+| SPI      |          |         |
+| VGA      |          |         |
