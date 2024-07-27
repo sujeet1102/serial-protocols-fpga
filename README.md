@@ -1,6 +1,6 @@
 ### Verilog implementation of Serial Communication Protocols 
 
-I am planning to implement the following serial comm protocols as part of my FPGA & verilog learning process.  
+I am planning to implement the following serial communication protocols as part of my FPGA & verilog learning process.  
 
 Board used is the Terasic DE-10 Lite. These are some of its specs:
     - MAX 10 10M50DAF484C7G Device
