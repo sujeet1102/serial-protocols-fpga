@@ -12,10 +12,10 @@ Board used is the Terasic DE-10 Lite. These are some of its specs:
   
 Software used is the Quartus Prime (ver 20.1) Lite.  
 
-| Protocol | Date | Status |
-|----------|------|--------|
-| UART     |      |        |
-| USART    |      |        |
-| I2C      |      |        |
-| SPI      |      |        |
-| VGA      |      |        |
+| Protocol | Date  | Status  |
+|----------|-------|---------|
+| UART     | 28/07 | Ongoing |
+| USART    |       |         |
+| I2C      |       |         |
+| SPI      |       |         |
+| VGA      |       |         |
