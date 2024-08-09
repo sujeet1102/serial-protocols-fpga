@@ -1,5 +1,24 @@
-//-------------------------UART RX------------------------------\
-module uart_rx #(parameter CLKS_PER_BIT) (
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/*
+	File				:	uart_rx.v
+	Top-level entity	:	uart_rx
+	Function			:	UART receiver module; Works on 50MHz internal clock
+							By default baud rate set to 115200; Two-bit flip-flop synchronizer used
+	
+	Ports	: Inputs	:	clk_50M - 50MHz internal clock from the FPGA
+						:	i_Rx - receiver data line
+			: Outputs	:	o_data_avail - when 1 (high) data is valid
+						:	o_data_byte - 8-bit data bus outputing the data
+	
+	Author	:	Sujeet Jagtap
+	Date	:	09/08/2024
+	
+*/
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+module uart_rx #(parameter CLKS_PER_BIT = 434) (
   input i_Rx,
   input clk_50M,
   output [7:0] o_data_byte,
@@ -94,4 +113,5 @@ module uart_rx #(parameter CLKS_PER_BIT) (
 
   
 endmodule
-//---------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------

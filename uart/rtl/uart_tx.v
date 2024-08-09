@@ -1,4 +1,26 @@
-module uart_tx #(parameter CLKS_PER_BIT) (
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/*
+	File				:	uart_tx.v
+	Top-level entity	:	uart_tx
+	Function			:	UART transmitter module; Works on 50MHz internal clock
+							By default baud rate set to 115200;
+	
+	Ports	: Inputs	:	clk_50M - 50MHz internal clock from the FPGA
+						:	i_data_avail - when 1 (high) signifies data is valid on input data line
+						:	i_data_byte - 8-bit data bus
+			: Outputs	:	o_Tx - transmitter output line
+						:	o_busy - signifies data transmission in progress; transmitter busy
+						:	o_done - signifies data transmission complete; ready to send next byte
+	
+	Author	:	Sujeet Jagtap
+	Date	:	09/08/2024
+	
+*/
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+module uart_tx #(parameter CLKS_PER_BIT = 434) (
   input clk_50M,
   input [7:0] i_data_byte,
   input i_data_avail,
@@ -94,4 +116,5 @@ module uart_tx #(parameter CLKS_PER_BIT) (
   end
   
 endmodule
-//-----------
+
+//--------------------------------------------------------------------------------
