@@ -1,21 +1,21 @@
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 /*
-	File				:	uart_tx.v
-	Top-level entity	:	uart_tx
-	Function			:	UART transmitter module; Works on 50MHz internal clock
-							By default baud rate set to 115200;
-	
-	Ports	: Inputs	:	clk_50M - 50MHz internal clock from the FPGA
-						:	i_data_avail - when 1 (high) signifies data is valid on input data line
-						:	i_data_byte - 8-bit data bus
-			: Outputs	:	o_Tx - transmitter output line
-						:	o_busy - signifies data transmission in progress; transmitter busy
-						:	o_done - signifies data transmission complete; ready to send next byte
-	
-	Author	:	Sujeet Jagtap
-	Date	:	09/08/2024
-	
+    File                :   uart_tx.v
+    Top-level entity    :   uart_tx
+    Function            :   UART transmitter module; Works on 50MHz internal clock
+                            By default baud rate set to 115200;
+    
+    Ports   : Inputs    :   clk_50M - 50MHz internal clock from the FPGA
+                        :   i_data_avail - when 1 (high) signifies data is valid on input data line
+                        :   i_data_byte - 8-bit data bus
+            : Outputs   :   o_Tx - transmitter output line
+                        :   o_busy - signifies data transmission in progress; transmitter busy
+                        :   o_done - signifies data transmission complete; ready to send next byte
+    
+    Author  :   Sujeet Jagtap
+    Date    :   09/08/2024
+    
 */
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -51,7 +51,7 @@ module uart_tx #(parameter CLKS_PER_BIT = 434) (
     
     case (state)
       
-      IDLE_STATE: begin	// Keep the Tx high as this is active low protocol;
+      IDLE_STATE: begin // Keep the Tx high as this is active low protocol;
         tx <= 1;
         done = 0;
         counter <= 0;
@@ -66,7 +66,7 @@ module uart_tx #(parameter CLKS_PER_BIT = 434) (
       end
       
       START_STATE: begin
-        tx <= 0;	// drive Tx low for sending start bit;
+        tx <= 0;    // drive Tx low for sending start bit;
         if (counter < CLKS_PER_BIT) begin
           counter <= counter + 1;
           state <= START_STATE;
@@ -78,26 +78,26 @@ module uart_tx #(parameter CLKS_PER_BIT = 434) (
       end
       
       SEND_BIT_STATE: begin
-        tx <= data_byte[bit_index];	// drive Tx line with data; 
+        tx <= data_byte[bit_index]; // drive Tx line with data; 
         if (counter < CLKS_PER_BIT-1) begin
           counter <= counter + 1;
           state <= SEND_BIT_STATE;
         end
         else begin
           counter <= 0;
-          if (bit_index < 7) begin	// if data bits are remaining; increment index;
+          if (bit_index < 7) begin  // if data bits are remaining; increment index;
             bit_index <= bit_index + 1;
             state <= SEND_BIT_STATE;
           end
           else begin
-            bit_index <= 0;	// when done sending all data; goto next state;
+            bit_index <= 0; // when done sending all data; goto next state;
             state <= STOP_STATE;
           end
         end
       end
       
       STOP_STATE: begin
-        tx <= 1;	// drive Tx line high as stop bit;
+        tx <= 1;    // drive Tx line high as stop bit;
         if (counter < CLKS_PER_BIT-1) begin
           counter <= counter + 1;
           state <= STOP_STATE;

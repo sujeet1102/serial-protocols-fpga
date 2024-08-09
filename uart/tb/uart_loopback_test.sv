@@ -1,15 +1,15 @@
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 /*
-	File				:	uart_loopback_test.sv
-	Top-level entity	:	uart_loopback_test
-	Function			:	UART test module; Generates 50MHz clock
-							Basic loopback test
-							Dumps all vars; Dumpfile - dump.vcd
-	
-	Author	:	Sujeet Jagtap
-	Date	:	09/08/2024
-	
+    File                :   uart_loopback_test.sv
+    Top-level entity    :   uart_loopback_test
+    Function            :   UART test module; Generates 50MHz clock
+                            Basic loopback test
+                            Dumps all vars; Dumpfile - dump.vcd
+    
+    Author  :   Sujeet Jagtap
+    Date    :   09/08/2024
+    
 */
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ module uart_loopback_test;
     #225000 $finish;
   end
   
-  always #10 clk_50M = ~clk_50M;	// Generates 50MHz clock
+  always #10 clk_50M = ~clk_50M;    // Generates 50MHz clock
   
   /* Basic Loopback Test` */
   
