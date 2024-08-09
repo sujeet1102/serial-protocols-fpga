@@ -11,11 +11,3 @@ Board used is the Terasic DE-10 Lite. These are some of its specs:
     - 4 PLLs  
   
 Software used is the Quartus Prime (ver 20.1) Lite.  
-
-| Protocol |   Date   |  Status |
-|----------|----------|---------|
-| UART     | 28/07/24 | Ongoing |
-| USART    |          |         |
-| I2C      |          |         |
-| SPI      |          |         |
-| VGA      |          |         |
